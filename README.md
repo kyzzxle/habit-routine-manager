@@ -1,58 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Habit & Routine Manager
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Project Code: WST21-PM-2026-MWF
+Student Name: [your full name]
+Course & Year: [e.g. BSIT 2nd Year]
+Database Used: SQLite
 
-## About Laravel
+## About
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is my semi-final project for the Laravel Mini Project. Instead of a
+plain task manager, I built a habit and routine tracker where users can add
+daily habits, organize them by category and priority, mark them as done,
+and see a running streak of how many times they've completed each one.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+It follows the Routes → Controller → Model → Database → Blade structure we
+learned in class.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+- Add Habit
+- View Habits
+- Edit Habit
+- Delete Habit
+- Update Status (Pending / Completed)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+I also added a few extra things on top of the requirements:
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Search habits by name
+- Filter by status
+- Categories (Health, Study, Fitness, Personal, Productivity)
+- Priority levels (Low, Medium, High)
+- A streak counter that goes up whenever a habit is marked Completed
+- Small achievement badges (First Habit, 7 Day Streak, 10 Completed)
+- A dashboard with stats (total, completed, pending, best streak) and a progress bar
+- A confirmation popup before deleting a habit
+- A message shown when there are no habits yet or no search results
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## About the streak feature
 
-## Agentic Development
+Since the database only stores one status per habit and doesn't log which
+day it was completed, I kept the streak simple: it just adds 1 every time a
+habit goes from Pending to Completed. It's not tracking consecutive days,
+more like a total completion count, but I wanted to include some form of
+streak system without overcomplicating the database.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Tech Stack
 
-```bash
-composer require laravel/boost --dev
+- Laravel
+- SQLite
+- Blade
+- Plain CSS, no framework
+- Built using GitHub Codespaces
 
-php artisan boost:install
-```
+## Database
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+The habits table stores: id, habit_name, description, category, priority,
+status, streak, due_date, plus the created_at/updated_at timestamps Laravel
+adds automatically.
 
-## Contributing
+## Screenshots
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
 
-## Code of Conduct
+### Add Habit
+![Add Habit](screenshots/add-habit.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Edit Habit
+![Edit Habit](screenshots/edit-habit.png)
