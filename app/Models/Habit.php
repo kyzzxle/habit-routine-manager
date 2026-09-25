@@ -12,7 +12,10 @@ class Habit extends Model
     protected $fillable = [
         'habit_name',
         'description',
+        'category',
+        'priority',
         'status',
         'due_date',
+        'streak',
     ];
 }
