@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HabitController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HabitController::class, 'index']);
+Route::resource('habits', HabitController::class);
